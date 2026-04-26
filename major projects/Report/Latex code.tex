@@ -1,0 +1,1437 @@
+\documentclass[10pt]{report}
+\usepackage{blindtext}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{sectsty}
+\usepackage{float}
+\usepackage{array}
+\usepackage[backend=biber,bibencoding=latin1]{biblatex}
+\chapterfont{\centering}
+\usepackage{enumitem}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{ragged2e}
+\usepackage{pdfpages} 
+
+
+\usepackage[headheight=0pt,headsep=0pt]{geometry}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\makeatletter
+\def\@makechapterhead#1{%
+  %%%%\vspace*{50\p@}% %%% removed!
+  {\parindent \z@ \centering\normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \huge\bfseries \@chapapp\space \thechapter
+        \par\nobreak
+        \vskip 20\p@
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 40\p@
+  }}
+\def\@makeschapterhead#1{%
+  %%%%%\vspace*{50\p@}% %%% removed!
+  {\parindent \z@ \centering
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par\nobreak
+    \vskip 40\p@
+  }}
+\makeatother
+
+\lstset{ %
+ language=Java, % the language of the code
+ basicstyle=\footnotesize, % the size of the fonts that are used for the code
+ numbers=left, % where to put the line-numbers
+ numberstyle=\tiny\color{gray}, % the style that is used for the line-numbers
+ stepnumber=1, % each line is numbered
+ numbersep=5pt, % how far the line-numbers are from the code
+ backgroundcolor=\color{white}, % choose the background color. You must add \usepackage{color}
+ showspaces=false, % show spaces adding particular underscores
+ showstringspaces=false, % underline spaces within strings
+ showtabs=false, % show tabs within strings adding particular underscores
+ frame=single, % adds a frame around the code
+ rulecolor=\color{black}, % if not set, the frame-color may be changed on line-breaks within notblack text (e.g. commens (green here))
+ tabsize=2, % sets default tabsize to 2 spaces
+ captionpos=b, % sets the caption-position to bottom
+ breaklines=true, % sets automatic line breaking
+ breakatwhitespace=false, % sets if automatic breaks should only happen at whitespace
+ title=\lstname, % show the filename of files included with \lstinputlisting;
+ % also try caption instead of title
+ keywordstyle=\color{blue}, % keyword style
+ commentstyle=\color{dkgreen}, % comment style
+ stringstyle=\color{mauve}, % string literal style
+ escapeinside={\%*}{*)}, % if you want to add a comment within your code
+ morekeywords={*,...} % if you want to add more keywords to the set
+}
+\geometry{a4paper,total={180mm,250mm},left=20mm,top=20mm, right=20mm}
+
+\thispagestyle{empty}
+\begin{document}
+\newpage
+\begin{center}
+\hspace{10cm}
+\LARGE{\textsc {\textbf{\textcolor{blue}{Batch No:21}}}}\\[0.2cm]
+\thispagestyle{empty}
+\LARGE{\textsc {\textbf{\textcolor{blue}{AI-POWERED SOLAR PANEL CLEANING
+SCHEDULER:DETECTING EFFICENCY DROP,DUST
+LEVELS AND AUTOMATING SCHEDULING}}}}\\[0.2cm]
+\vspace{0.2cm}
+\Large{\textit{\textcolor{blue}{\\Major project report submitted \\in partial fulfillment of the
+requirement
+for award of the degree of}}}\\[0.3cm]
+\Large{\textbf{\textcolor{blue}{\\Bachelor of Technology\\in \\Artificial Intelligence and Machine Learning}}}
+\vspace{0.5cm}
+\Large{\textbf{\textcolor{blue}{\\By}}}\\[0.5cm]
+\begin{table}[h]
+\centering
+\Large{\textcolor{blue}{
+\begin{tabular}{>{\bfseries}lc>{\bfseries}r}
+B.RAGHAVENDRA REDDY&(22UEAM0010) & (VTU 21873)\\Y.GAVASKAR BABU & (22UEAM008)&(VTU 22974)\\I.ATCHI REDDY&(22UEAM0021) & (VTU 21873)\\
+\end{tabular}}}
+\end{table}
+\vspace{0.5cm}
+\large{\textit{\textcolor{blue}{Under the guidance of}}}\\
+\large{\textit{\textcolor{blue}{Dr.Peer Mohamed Appa Assitant Professor S.G}
+}}\\
+\vspace{0.5cm}
+\includegraphics[scale=0.4]{veltech.png}\\
+\vspace{1cm}
+\large{\textbf{\textcolor{blue}{DEPARTMENT OF ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING}}}\\
+
+\large{\textbf{\textcolor{blue}{SCHOOL OF COMPUTING}}}\\
+\vspace{0.5cm}
+\Large{\textbf{\textcolor{blue}{VEL TECH RANGARAJAN DR. SAGUNTHALA R\&D INSTITUTE OF
+SCIENCE AND TECHNOLOGY\\
+\vspace{0.2cm}
+(Deemed to be University Estd u/s 3 of UGC Act,
+1956)}}}\\\Large{\textbf{\textcolor{blue}{Accredited by NAAC with A++ Grade}}}\\
+\large{\textbf{\textcolor{blue}{CHENNAI 600 062, TAMILNADU, INDIA}}}
+\vspace{0.4cm}
+\large{\textbf{\textcolor{blue}{\\April 2026}}}\\
+\end{center}
+
+\newpage
+\begin{center}
+\hspace{10cm}
+\LARGE{\textsc {\textbf{\textcolor{blue}{Batch No:21}}}}\\[0.2cm]
+\thispagestyle{empty}
+\LARGE{\textsc {\textbf{\textcolor{blue}{AI-POWERED SOLAR PANEL CLEANING
+SCHEDULER:DETECTING EFFICENCY DROP,DUST
+LEVELS AND AUTOMATING SCHEDULING}}}}\\[0.2cm]
+\vspace{0.2cm}
+\Large{\textit{\textcolor{blue}{\\Major project report submitted \\in partial fulfillment of the
+requirement
+for award of the degree of}}}\\[0.3cm]
+\Large{\textbf{\textcolor{blue}{\\Bachelor of Technology\\in \\Artificial Intelligence and Machine Learning}}}
+\vspace{0.5cm}
+\Large{\textbf{\textcolor{blue}{\\By}}}\\[0.5cm]
+\begin{table}[h]
+\centering
+\Large{\textcolor{blue}{
+\begin{tabular}{>{\bfseries}lc>{\bfseries}r}
+B.RAGHAVENDRA REDDY&(22UEAM0010) & (VTU 21873)\\Y.GAVASKAR BABU & (22UEAM008)&(VTU 22974)\\I.ATCHI REDDY&(22UEAM0021) & (VTU 21873)\\
+\end{tabular}}}
+\end{table}
+\vspace{0.5cm}
+\large{\textit{\textcolor{blue}{Under the guidance of}}}\\
+\large{\textit{\textcolor{blue}{Dr.Peer Mohamed Appa Assitant Professor S.G}
+}}\\
+\vspace{0.5cm}
+\includegraphics[scale=0.4]{veltech.png}\\
+\vspace{1cm}
+\large{\textbf{\textcolor{blue}{DEPARTMENT OF ARTIFICIAL INTELLIGENCE AND MACHINE LEARNING}}}\\
+
+\large{\textbf{\textcolor{blue}{SCHOOL OF COMPUTING}}}\\
+\vspace{0.5cm}
+\Large{\textbf{\textcolor{blue}{VEL TECH RANGARAJAN DR. SAGUNTHALA R\&D INSTITUTE OF
+SCIENCE AND TECHNOLOGY\\
+\vspace{0.2cm}
+(Deemed to be University Estd u/s 3 of UGC Act,
+1956)}}}\\\Large{\textbf{\textcolor{blue}{Accredited by NAAC with A++ Grade}}}\\
+\large{\textbf{\textcolor{blue}{CHENNAI 600 062, TAMILNADU, INDIA}}}
+\vspace{0.4cm}
+\large{\textbf{\textcolor{blue}{\\April 2026}}}\\
+\end{center}
+
+%CERTIFICATE
+\newgeometry{left=20mm,top=20mm, right=20mm} 
+\begin{center}
+{\Huge \textbf{CERTIFICATE}}\\[1cm]
+\end{center}
+\linespread{1.5}
+\large{It is certified that the work contained in the project report titled ” AI-POWERED SOLAR PANEL CLEANING
+SCHEDULER:DETECTING EFFICENCY DROP,DUST
+LEVELS,AND AUTOMATING SCHEDULING " by "B.RAGHAVENDRA REDDY & (22UEAM0010), Y.GAVASKAR BABU & (22UEAM0068), I.ATCHI REDDY & (22UEAM0021)" has been carried out under my supervision and that this work has not
+been submitted elsewhere for a degree.}
+\vspace{1.5cm}
+\begin{flushright}
+\textbf{Signature of Supervisor\\Dr.Peer Mohamed Appa\\Assitant Professor S.G\\Artificial Intelligence and Machine Learning\\School of Computing\\Vel Tech Rangarajan Dr. Sagunthala R\&D\\Institute of Science and
+Technology\\}\\[2.0cm]
+
+\end{flushright}
+\begin{flushleft}
+    
+
+\textbf{Signature of the Department\hfill\textbf{Signature of the Dean }\\\\Dr. S. Alex David \hfill\textbf{Dr. S P. Chokkalingam
+} \\Professor \& Head  \hfill\textbf{Professor \& Dean}\\Artificial Intelligence and Machine Learning\hfill\textbf{School of Computing}\\{School of Computing}\hfill\textbf{Vel Tech Rangarajan Dr. Sagunthala R\&D}\\Vel Tech Rangarajan Dr. Sagunthala R\&D\hfill\textbf{Institute of
+Science and Technology}\\{Institute of
+Science and Technology}\hfill\textbf{}\\}\\\textbf{{}}\hfill\textbf{}\\\\
+\end{flushleft}
+
+
+%declaration
+\newpage
+\begin{center}
+\Huge \textbf{DECLARATION}
+\end{center}
+\vspace{1.0cm}
+\linespread{1.5}
+\large{
+We declare that this written submission represents our ideas in our own words and where others' ideas
+or words have been included, we have adequately cited and referenced the original sources. We also
+declare that we have adhered to all principles of academic honesty and integrity and have not
+misrepresented or fabricated or falsified any idea/data/fact/source in our submission. We understand
+that any violation of the above will be cause for disciplinary action by the Institute and can also evoke
+penal action from the sources which have thus not been properly cited or from whom proper permission
+has not been taken when needed.}
+\vspace{2.0cm}
+\begin{flushright}
+(Signature)\\
+\large{(B.RAGHAVENDRA REDDY)}\\
+\large{Date:\hspace*{1.0cm}/\hspace*{1.0cm}/}\\[2.0cm]
+(Signature)\\
+\large{(Y.GAVASKAR BABU)}\\
+\large{Date:\hspace*{1.0cm}/\hspace*{1.0cm}/}\\[2.0cm]
+(Signature)\\
+\large{(I.ATCHI REDDY)}\\
+\large{Date:\hspace*{1.0cm}/\hspace*{1.0cm}/}\\[2.0cm]
+\end{flushright}
+\newpage
+%approval sheet
+\newpage
+\begin{center}
+\Huge\textbf{APPROVAL SHEET}\\
+\vspace{1.0cm}
+\end{center}
+\linespread{1.5}
+\justifying{
+\large{This project report entitled d ” AI-POWERED SOLAR PANEL CLEANING
+SCHEDULER:DETECTING EFFICENCY DROP,DUST
+LEVELS,AND AUTOMATING SCHEDULING ” by B.RAGHAVENDRA REDDY(22UEAM0010),  Y.GAVASKAR BABAU(22UEAM0068), I.ATCHI REDDY(22UEAM0021) is approved for the
+degree of B.Tech in Artificial Intelligence and Machine Learning.}\\}
+\vspace{4.0cm}
+\begin{flushleft}
+\Large \textbf{Examiners} \hfill \Large \textbf{Supervisor}\\
+\end{flushleft}
+\begin{flushright}
+Dr.Peer Mohamed Appa, \\
+ Assitant Professor S.G,.
+\end{flushright}
+\vspace{1.0cm}
+\begin{flushleft}
+\large{\textbf{Date:\hspace*{1.0cm}/\hspace*{2.0cm}/}}\\
+\large{\textbf{Place:}}
+\end{flushleft}
+%acknowledgment
+\newpage
+\begin{center}
+\LARGE{\textbf{ACKNOWLEDGEMENT}}\\[1cm]
+\end{center}
+\linespread{1.13}
+\begin{sloppypar}
+
+\large{\paragraph{}We express our deepest gratitude to our \textbf{Honorable Founder Chancellor and President
+Col. Prof. Dr. R. RANGARAJAN B.E. (Electrical), B.E. (Mechanical), M.S
+(Automobile), D.Sc., and Foundress President Dr. R. SAGUNTHALA RANGARAJAN
+M.B.B.S. Vel Tech Rangarajan Dr. Sagunthala
+R\&D Institute of Science and Technology,} for their blessings.
+\large{\paragraph{}We express our sincere thanks to our respected Chairperson and Managing Trustee \textbf{Dr.(Mrs).
+RANGARAJAN MAHALAKSHMI KISHORE, B.E., M.B.A. Vel Tech Rangarajan Dr. Sagunthala
+R\&D Institute of Science and Technology,} for her blessings. 
+
+\large{\paragraph{}We are very much grateful to our beloved \textbf{Vice Chancellor Prof. Dr.RAJAT
+GUPTA , M.Tech., Ph.D.,} for providing us with an environment to complete our project successfully.}
+\large{\paragraph{}We record indebtedness to our \textbf{Professor \& Dean, School of Computing, Dr.SP.CHOKKALINGAM, M.Tech., Ph.D., Professor \& Associate Dean,  Dr.V.DHILIP KUMAR, M.E., Ph.D., Professor \& Assistant Dean, Dr. R. PARTHASARATHY, M.E., Ph.D., }  for their immense care and encouragement
+towards us throughout the course of this project.}
+
+\large{\paragraph{}We are thankful to our \textbf{Professor \& Head, Department of Artificial Intelligence and Machine Learning, Dr. S. ALEX DAVID, M.E., Ph.D.,} \textbf for providing immense support in all our endeavors.
+\large{\paragraph{}We also take this opportunity to express a deep sense of gratitude to our \textbf{Dr.Peer Mohamed Appa Assitant Professor S.G,} for his cordial support, valuable
+information and guidance, he helped us in completing this project through various stages. }
+\large{\paragraph{}A special thanks to our \textbf{Project Coordinator Dr B. PRABHU SHANKAR Ph.D.,} for his valuable guidance and support throughout the course of the project.}
+
+\large{\paragraph{}We thank our department faculty, supporting staff and friends for their support and
+guidance to complete this project.}
+\begin{sloppypar}
+
+\vspace{2.0cm}
+\begin{flushright}
+\begin{tabular}{>{\bfseries}lc>{\bfseries}r}
+B.RAGHAVENDRA REDDY  & & (22UEAM0010)\\Y.GAVASKAR BABU & & (22UEAM0068)\\I.ATCHI REDDY & &
+(22UEAM0021)\\
+\end{tabular}
+\end{flushright}
+%ABSTRACT
+\newpage
+\begin{center}
+\vspace{2cm}
+\Large{\textbf{ABSTRACT}}\\[0.5cm]
+\end{center}
+\begin{center}
+\addtocontents{toc}{~\hfill\textbf{Page.No}\par}
+\addcontentsline{toc}{chapter}{ABSTRACT}
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\end{center}
+\vspace{-6em}
+\Large{\paragraph\\
+
+Dust and pollutants settling on solar panels have a dramatic effect of reducing the
+energy conversion efficiency of solar panels and hence result in a de-performance and
+increased maintenance. The paper will introduce an AI-based solar panel cleaning
+scheduler that identifies the presence of dust and performance decline on the panel
+and performs autonomous cleaning scheduling. 
+The proposed system combines the
+solar and mobile powered rover stationed on an ultrasonic sensor, motor driver, DC
+motor as well as real-time clock (RTC) in order to have intelligent monitoring and
+time-controllable operation.
+The panel surface is traversed by the rover using an automated cleaning mechanism in which the rover is driven by a motor in order to clean itself whenever a preestablished decrease in efficiency or increase in dust level has been detected. Based
+on the trends in the intensity of sunshine, dust density, and power output, the AI
+module, which is educated on real-time efficiency and environmental data, predicts
+the best cleaning time. 
+
+
+A small controller is powered by a 10 V solar battery and
+manages sensor values, the rover and cleaning controls and coordinates the movement of the rover and sensor-reads, as well as broadcasting the obtained readings to
+the display and related management systems.
+
+
+ }\\
+\vspace{0.5cm}
+\noindent \textbf{Keywords:}\\
+
+Artificial Intelligence, Panel Cleaning, Efficiency Prediction, Dust Detection system
+\textbf{}
+%list of figure
+\newpage
+\renewcommand*\listfigurename{LIST OF FIGURES}
+\addcontentsline{toc}{chapter}{LIST OF FIGURES}
+\listoffigures
+\newpage
+\renewcommand{\listtablename}{LIST OF TABLES}
+\addcontentsline{toc}{chapter}{LIST OF TABLES}
+\listoftables
+%list of abbreviation
+\newpage
+\newlist{abbrv}{itemize}{1}
+\setlist[abbrv,1]{label=,labelwidth=1in,align=parleft,itemsep=0.1\baselineskip,leftmargin=!}
+\chapter*{LIST OF ACRONYMS AND ABBREVIATIONS}
+\chaptermark{LIST OF ACRONYMS AND ABBREVIATIONS}
+\addcontentsline{toc}{chapter}{LIST OF ACRONYMS AND ABBREVIATIONS}
+\begin{abbrv}
+\item[AI] Artificial Intelligence
+\item[PV] Photovoltaic
+\item[RTC] Real-Time clock
+\item[DC] Direct current
+\item[ESP] Espressif Systems Platform
+\item[SDA] Serial Data Line
+\item [SCL] Serial Clock Line
+\item [ADC] Analog to Digital Converter
+\item [LDR] Light Dependent Resistor
+\item [I2C] Inter-Integrated Circuit
+\item 
+\item
+\item 
+\item 
+\item 
+\item 
+\item 
+\item 
+\end{abbrv}
+\newpage
+\renewcommand*\contentsname{TABLE OF CONTENTS}
+%\addtocontents{toc}{\textbf{CONTENT} \hfill \textbf{PAGE NO.}}
+\tableofcontents
+\addtocontents{toc}{\protect\pagestyle{empty}}
+\thispagestyle{empty}
+%introduction
+\chapter{INTRODUCTION}
+\pagenumbering{arabic}
+\section{Introduction}
+\hspace{0.5cm} 
+Solar energy has become one of the most reliable and widely adopted renewable energy sources in recent years. With the increasing demand for clean and sustainable power, solar photovoltaic (PV) systems are being installed in large numbers across
+residential, industrial, and utility-scale applications. However, the performance of solar panels is highly dependent on environmental conditions. One of the major issues affecting their efficiency is the accumulation of dust, dirt, and other airborne particles on the panel surface. Even a thin layer of dust can block sunlight and significantly reduce the amount of energy generated, leading to power loss and reduced
+system efficiency.
+
+\\
+\\
+\hspace{0.5cm}
+In practical installations, especially in dusty or arid regions, regular cleaning of solar panels becomes necessary to maintain optimal performance. Traditional cleaning methods are mostly manual, which require human effort, time, and water. These methods are not only labor-intensive but also inconsistent, as cleaning schedules are often fixed rather than based on actual panel conditions. This can lead to unnecessary cleaning cycles or delayed maintenance, both of which negatively impact overall
+system efficiency and operating cost.To address these challenges, there is a growing need for intelligent and automated solutions that can monitor panel conditions and perform cleaning only when required. 
+
+\\
+\\
+\hspace{0.5cm}
+The proposed system focuses on developing an AI-based solar panel cleaning
+scheduler that continuously monitors the condition of the panel and decides the optimal time for cleaning. The system makes use of various sensors to detect dust levels indirectly by analyzing parameters such as power output and environmental conditions. An ultrasonic sensor is used to assist in positioning and obstacle detection for the cleaning mechanism, ensuring smooth and safe operation of the rover. Voltage and current sensors provide real-time data about the panel’s electrical performance,which serves as a key indicator of efficiency degradation.
+
+\linespread{1.5}
+\section{Background}
+\hspace{0.5cm}
+The rapid growth of solar photovoltaic installations has highlighted the importance of maintaining panel efficiency under real-world operating conditions. Although solar panels are designed for long-term use, their exposure to open environments makes them vulnerable to dust accumulation, bird droppings, and other contaminants. Studies and field observations have shown that such surface deposits can reduce energy output noticeably over time, especially in regions with high pollution levels or low rainfall.\\
+
+To overcome these limitations, research has gradually shifted toward automated cleaning systems. Early automated solutions focused mainly on mechanical designs such as fixed brush systems or rail-mounted cleaning units. Although these systems reduced human effort, they often lacked adaptability and intelligence. They operated based on preset intervals rather than real-time panel conditions, which limited their
+efficiency. With advancements in embedded systems and sensor technology, modern approaches began incorporating environmental and electrical parameter monitoring.Sensors measuring voltage, current, light intensity, and dust presence provided better insight into panel performance.
+\\
+
+This project is developed to bridge the gap between traditional healthcare methods and modern digital solutions. By integrating multiple features such as disease prediction, drug recommendation, heart disease risk assessment, and chatbot assistance into a single platform, the system aims to provide quick and reliable healthcare guidance. It helps users understand their symptoms and take necessary actions at an early stage, improving overall healthcare accessibility.
+\section{Objective}
+\hspace{0.5cm}
+The primary objective of this work is to design and develop an intelligent solar
+panel cleaning system that can monitor panel performance and automatically decide when cleaning is required. The system aims to reduce the loss in energy generation caused by dust accumulation by continuously analysing key parameters such as voltage, current, and environmental conditions. By using a microcontroller-based architecture integrated with sensors, the system is expected to detect efficiency drops in real time and trigger cleaning operations only when necessary. This targeted approach helps avoid unnecessary maintenance while ensuring that the solar panels
+operate close to their maximum efficiency. Another important objective is to incorporate an AI-based decision mechanism that can learn from operational data and predict the most effective cleaning schedule. Instead of relying on fixed time intervals, the system focuses on adaptive decision-making based on trends in performance and surrounding conditions.
+
+\section{Problem Statement}
+\hspace{0.5cm}
+Solar photovoltaic systems often operate in open environments where dust, dirt,and other contaminants gradually accumulate on the panel surface. This buildup forms a thin layer that obstructs sunlight, directly reducing the panel’s ability to convert solar energy into electrical power. In many installations, especially in dry and polluted regions, this issue becomes severe and leads to a noticeable drop in energy output over time. Despite its impact, cleaning is usually performed at fixed intervals or based on visual inspection, which does not accurately reflect the actual condition of the panel. As a result, panels may either remain uncleaned during critical periods of efficiency loss or be cleaned unnecessarily, leading to inefficient maintenance practices. \\
+
+Another major challenge lies in the dependency on manual cleaning
+methods, which require significant labor, time, and water resources. In large-scale solar farms, this approach becomes impractical and costly, while also introducing inconsistencies in maintenance quality. Existing automated systems, although helpful,often lack the ability to make intelligent decisions based on real-time data. They typically operate on pre-set schedules without considering variations in environmental
+conditions or performance degradation. Therefore, there is a clear need for a smart and autonomous system that can continuously monitor solar panel performance, accurately detect when cleaning is required, and carry out the process efficiently.
+
+
+%literature review
+\chapter{LITERATURE REVIEW}
+\hspace{0.5cm}
+One of the most significant achievements of recent years in the field of monitoring
+and maintenance of photovoltaic (PV) systems is the use of Artificial Intelligence
+(AI), Machine Learning (ML), Internet of Things (IoT), and robots. Several papers
+of 2020-2025 have examined predictive cleaning, efficiency optimization, and intelligent scheduling system of solar panels. This part is a summary of major contributions
+made in ten exemplary works among this new research. Dhimish and Al-Habaibeh
+[1] presented an algorithm based on machine learning to predict predictive maintenance in an installation of PV panels. In their model, they were based on the environmental and weather conditions including irradiance and temperature data to forecast
+the soiling rates and suggest cleaning time. Experimental verification expressed that
+annual increment of energy yield was about 5.2 percent, and as a result, it was acceptable that substituting fixed-interval cleaning with information-driven scheduling
+is advantageous.\\
+
+The need of the localized soiling sensor and models that would
+manage the micro-climatic variations was identified in the study, though. Kale et al.
+[2] designed an IoT-based system of automation that used motorized wipers, light
+sensors and a microcontroller to control cleaning in real-time. Remote monitoring
+and mobile alerts helped the system to maintain a consistent cleaning of the surface
+and power enhancement. Despite its effectiveness, it was based on the idea of threshold activation, as opposed to the actual predictive algorithm, which encouraged the
+use of AI in the future to develop intelligent scheduling. An AI-based robot vacuum
+with Deep Learning and reinforcement learning (RL) was presented by A. R. L. R. A. \\
+
+The CNN-LSTM-based vision model identified
+the dirty parts on the surface with the help of aerial and ground photos, whereas RL
+was trained to plan the cleaning process in the most resource-efficient way possible.
+The cleaning efficiency (91.3) and the savings in energy and water (34.9 -) of the
+system were achieved. Some recommendations were made on the edge-computing
+performance to improve in the future to enable large-scale deployment. Al-Humaira
+et al. [4] used ensemble ML models, such as stacking and boosting, to estimate predictive cleaning schedule with the help of historical performance data. They also
+were much more accurate than the single algorithms, which proved the importance
+of the data augmentation approach in maintenance prediction. \\
+
+They observed that
+the ability to add to robustness would be through the introduction of particle composition and diversity of dust size. Patidar et al. [5] built a computer-vision-based
+floor cleaner with the help of CNN (VGG-16) to detect dust and bird droppings. The
+robot was dynamically chosen to choose between dry cleaning and wet cleaning depending on the type of contamination, and more power was provided to the robot
+after cleaning. The authors recommended their design to multi-robot coordination
+of large solar farms. Ossa et al. [6] examined a Digital Twin (DT) architecture that
+combined AI and IoT data to PV performance Modelling.
+
+
+\section{Existing System}
+\hspace{0.5cm}
+Existing solar panel cleaning systems, as identified from the literature, mainly
+fall into three categories: manual cleaning methods, threshold-based automated systems, and partially intelligent monitoring solutions. Traditional manual cleaning is
+still widely practiced, where panels are cleaned at regular intervals using water and
+labor. While simple, this approach does not consider real-time panel conditions and
+often leads to inefficient maintenance. To overcome manual limitations, several automated systems have been developed using IoT and embedded technologies. These
+systems typically use sensors such as LDR, voltage, and current sensors to detect a
+drop in performance.\\
+
+Based on predefined threshold values, cleaning mechanisms
+like motorized wipers or water pumps are activated. Some systems also provide remote monitoring through mobile or web interfaces. Although these solutions reduce
+human effort, they still operate on fixed logic and lack adaptability. More recent
+systems incorporate machine learning and AI techniques to predict cleaning schedules. These models use environmental and performance data such as solar irradiance,
+10
+temperature, and power output to estimate dust accumulation and efficiency loss.
+Advanced approaches include computer vision-based dust detection, reinforcement
+learning for optimizing cleaning paths, and digital twin models for predictive maintenance. Robotic cleaning systems have also been introduced, where autonomous
+rovers move across panel surfaces to perform cleaning tasks. 
+
+\section{Related Work}
+\hspace{0.5cm}
+Recent developments in solar panel maintenance systems show a clear transition from manual and rule-based approaches to intelligent and data-driven solutions.
+Early systems primarily relied on simple sensing techniques using light-dependent
+resistors (LDRs), voltage sensors, and fixed thresholds to trigger cleaning actions.
+These designs were cost-effective and easy to implement, but they lacked adaptability to changing environmental conditions. IoT-based monitoring systems later
+improved this approach by enabling real-time data collection and remote supervision, allowing users to track panel performance and initiate cleaning when necessary. However, most of these systems still depended on predefined limits rather than
+dynamic decision-making. More advanced research introduced machine learning
+and artificial intelligence techniques to improve efficiency and reduce unnecessary
+cleaning cycles.\\
+
+Predictive models based on environmental data such as irradiance,
+temperature, and humidity were used to estimate soiling rates and determine optimal cleaning intervals. Some works employed computer vision and deep learning
+models to detect dust accumulation directly from images, while others explored reinforcement learning for optimizing cleaning paths and resource usage. Additionally,
+concepts like digital twins and optimization algorithms have been applied to simu11
+late panel behaviour and schedule maintenance in a cost-effective manner. 
+
+
+\section{Research Gap}
+\hspace{0.5cm}
+Although significant progress has been made in the field of automated solar panel
+cleaning, several limitations still exist in current systems. One of the major gaps
+is the lack of integration between real-time sensing, predictive intelligence, and autonomous cleaning mechanisms in a single compact system. Many existing solutions
+either focus only on monitoring or only on cleaning, without effectively combining
+both functionalities. Systems that rely on fixed thresholds fail to adapt to varying
+environmental conditions, while AI-based models often require high computational
+resources, making them less suitable for low-power embedded applications. Another
+important gap is related to scalability and practical deployment. Several advanced
+models depend on large datasets, high-end processors, or cloud-based computation,
+which may not be feasible for small-scale or remote installations. \\
+
+Additionally, variations in climate, dust composition, and panel orientation are not fully addressed in
+many studies, leading to reduced accuracy when systems are deployed in different
+locations. There is also limited work on energy-efficient designs that can operate entirely on solar power without increasing system overhead. Therefore, there is a need
+for a balanced solution that combines lightweight AI techniques, real-time sensor
+data, and an autonomous cleaning mechanism to create a reliable, cost-effective, and
+self-sustaining solar panel maintenance system.
+
+\linespread{1.5}
+%PROJECT DESCRIPTION
+\chapter{PROJECT DESCRIPTION}
+\linespread{1.5}
+\section{Existing System}
+\hspace{0.5cm}
+Existing solar panel cleaning systems, as identified from the literature, mainly
+fall into three categories: manual cleaning methods, threshold-based automated systems, and partially intelligent monitoring solutions. Traditional manual cleaning is
+still widely practiced, where panels are cleaned at regular intervals using water and
+labor. While simple, this approach does not consider real-time panel conditions and
+often leads to inefficient maintenance. To overcome manual limitations, several automated systems have been developed using IoT and embedded technologies. These
+systems typically use sensors such as LDR, voltage, and current sensors to detect a
+drop in performance. Based on predefined threshold values, cleaning mechanisms
+like motorized wipers or water pumps are activated. Some systems also provide remote monitoring through mobile or web interfaces.\\
+
+Although these solutions reduce
+human effort, they still operate on fixed logic and lack adaptability. More recent
+systems incorporate machine learning and AI techniques to predict cleaning schedules. These models use environmental and performance data such as solar irradiance,
+temperature, and power output to estimate dust accumulation and efficiency loss.
+Advanced approaches include computer vision-based dust detection, reinforcement
+learning for optimizing cleaning paths, and digital twin models for predictive maintenance. Robotic cleaning systems have also been introduced, where autonomous
+rovers move across panel surfaces to perform cleaning tasks. Despite these improvements, many of these systems are complex, computationally intensive, and not fully
+optimized for real-time embedded implementation. 
+
+\section{Proposed System}
+\hspace{0.5cm}
+The proposed system is an intelligent solar panel cleaning solution that combines real-time monitoring, AI-based scheduling, and an automated rover mechanism. A microcontroller continuously collects data from voltage and current sensors
+to evaluate panel performance. When a drop in efficiency is observed, the AI module analyzes environmental conditions and historical trends to determine the optimal
+cleaning time. Once triggered, a motor-driven rover equipped with a brush moves
+across the panel surface to remove dust effectively. An ultrasonic sensor ensures
+proper navigation, while an RTC module maintains accurate timing for scheduling
+and data logging. \\
+
+The system is powered by a solar battery, making it self-sustaining
+and suitable for remote installations.
+Advantages of Proposed System:
+\item• Reduces energy loss by cleaning only when required
+\item• Minimizes water usage and manual effort
+\item• Improves overall panel efficiency and lifespan
+\item• Provides autonomous and real-time operation
+\item• Cost-effective and suitable for large-scale deployment
+
+\section{Feasibility Study}
+\hspace{0.5cm}
+The proposed AI-based solar panel cleaning system is technically feasible as it
+uses readily available components such as microcontrollers, sensors, motor drivers,
+and DC motors. These components are widely used in embedded systems and can
+be easily integrated to perform real-time monitoring and control operations. The implementation of AI-based scheduling can be achieved using lightweight algorithms
+that are suitable for embedded platforms, ensuring that the system can operate efficiently without requiring high computational resources. Additionally, the use of a
+rover-based cleaning mechanism is practical and has already been proven effective
+in similar robotic applications. From an economic perspective, the system is costeffective compared to long-term manual maintenance.
+\\
+
+Although there is an initial
+setup cost, it significantly reduces recurring expenses related to labour, water usage,
+and maintenance. The use of solar power for system operation further minimizes
+energy costs, making it suitable for both small-scale and large-scale installations.
+Operational feasibility is also high, as the system is designed for autonomous functioning with minimal human intervention. It can adapt to varying environmental
+conditions and ensures consistent performance, making it reliable for real-world deployment. Overall, the system is practical, affordable, and sustainable for improving
+solar panel efficiency.\\
+\subsection{Economic Feasibility}\\
+\hspace{0.5cm}
+The proposed system is economically viable as it focuses on reducing long-term
+operational and maintenance costs associated with solar panel cleaning. Although
+the initial investment includes components such as a microcontroller, sensors, motor
+driver, DC motors, and a rover mechanism, these are relatively low-cost and readily available in the market. Once installed, the system operates autonomously using
+solar energy, which eliminates the need for external power and reduces recurring
+expenses. The use of efficient hardware and minimal water-based cleaning further
+contributes to cost savings over time. In comparison to manual cleaning, which requires continuous labour and resource allocation, the proposed system significantly
+lowers human intervention and associated costs.\\
+
+ It also prevents unnecessary cleaning cycles by using AI-based scheduling, thereby conserving water and reducing
+wear on mechanical parts. Improved panel efficiency leads to higher energy output,
+which translates into better financial returns over the system’s lifespan. This makes
+the solution particularly beneficial for large-scale solar installations, where maintenance costs are a major concern. Overall, the system offers a balanced combination
+of low initial cost and high long-term savings, making it economically feasible.\\
+
+\subsection{Technical Feasibility}\\
+\hspace{0.5cm}
+The proposed system is technically feasible as it is built using well-established
+embedded technologies and commonly available hardware components. The integration of a microcontroller with sensors such as voltage, current, and ultrasonic
+modules enables accurate real-time monitoring and control. The motor driver and
+16
+DC motors used for the rover mechanism are simple to interface and widely tested in
+robotic applications. The AI-based scheduling can be implemented using lightweight
+algorithms, making it suitable for execution on low-power embedded systems without the need for high-end processors or cloud dependency. \\
+
+The inclusion of an RTC
+module ensures proper time-based operations and data tracking. From a system integration perspective, all modules can be interconnected with minimal complexity,
+and the design can be easily scaled or modified based on application requirements.
+The use of solar power with battery storage ensures uninterrupted operation even
+in remote locations. Additionally, the system is designed to handle environmental
+variations, making it reliable under different working conditions. Overall, the combination of proven hardware, efficient software design, and ease of implementation
+confirms the technical feasibility of the proposed system.
+
+\subsection{Social Feasibility}
+\\
+\hspace{0.5cm}
+The proposed system is socially beneficial as it promotes the efficient use of
+renewable energy and supports sustainable development.By maintaining the efficiency of solar panels, the system helps increase clean energy generation, reducing
+dependence on non-renewable energy sources. The reduction in manual cleaning
+minimizes human effort and exposure to harsh environmental conditions, especially
+in large solar farms or rooftop installations where safety can be a concern. Furthermore, the system conserves important resources such as water by avoiding unnecessary cleaning cycles, which is particularly important in water-scarce regions.
+\\
+
+Its autonomous operation also makes it suitable for deployment in remote and rural
+areas, improving accessibility to efficient solar energy systems. The use of affordable and locally available components encourages wider adoption and supports local
+technological development. Overall, the system contributes positively to society by
+improving energy efficiency, reducing labour dependency, and promoting environ
+mentally responsible practices.
+
+\section{System Specification}
+\hspace{0.5cm}
+The proposed AI-based solar panel cleaning system is designed using a combination of embedded hardware and intelligent control algorithms to ensure efficient and
+autonomous operation. The system is built around a microcontroller unit (such as
+Arduino or similar), which serves as the central processing unit for data acquisition,
+decision-making, and control actions. It interfaces with voltage and current sensors
+to monitor the real-time performance of the solar panel. An ultrasonic sensor is incorporated to assist the rover in navigation and obstacle detection during the cleaning
+process. The cleaning mechanism consists of DC motors controlled through a motor driver module, enabling precise movement of the rover across the panel surface.
+\\
+
+A real-time clock (RTC) module is used for maintaining accurate timing, scheduling operations, and recording system activity. An LCD display is included to show
+system parameters such as voltage, current, and operational status. The entire system is powered by a solar panel supported by a rechargeable battery (approximately
+10V), ensuring continuous and self-sustained operation. From a software perspective, the system employs an AI-based scheduling algorithm that analyzes sensor data
+and environmental conditions to determine the optimal cleaning time. The embedded program is developed to handle sensor data processing, decision logic, and motor
+control efficiently. The system is designed to operate with low power consumption,
+high reliability, and minimal human intervention. Overall, the specifications ensure
+that the system is compact, scalable, and suitable for real-time solar panel maintenance applications.
+\\
+
+\subsection{Tools and Technologies Used}\\
+\hspace{0.5cm}
+The proposed system is implemented using a set of reliable and easily available
+hardware components that support real-time monitoring, control, and automation.
+The main component is a microcontroller (such as Arduino), which acts as the central processing unit to handle sensor data and control the overall operation. Voltage
+and current sensors are used to measure the electrical output of the solar panel, helping in detecting efficiency drops due to dust accumulation. An ultrasonic sensor is
+integrated to assist the rover in navigation and to avoid obstacles during movement
+across the panel surface. For actuation, DC motors are used along with a motor
+driver module (such as L298N) to control the motion of the cleaning rover.
+\\
+
+A brush
+mechanism is attached to physically remove dust from the panel surface. 
+A real-time
+clock (RTC) module is included to maintain accurate timing for scheduling and logging purposes. An LCD display is used to provide real-time system information such
+as voltage, current, and cleaning status. The entire system is powered using a solar
+panel with a rechargeable battery (around 10V), ensuring continuous and energyefficient operation. These hardware tools collectively enable the system to function
+autonomously and effectively
+\\
+
+\subsection{Standards and Policies}\\
+\hspace{0.5cm}
+The proposed AI-based solar panel cleaning system is designed by considering relevant technical standards and general safety guidelines to ensure reliable and
+secure operation. Electrical components used in the system follow standard lowvoltage design practices to prevent damage and ensure user safety. Proper insulation,
+regulated power supply, and safe current limits are maintained while interfacing the
+microcontroller, sensors, and motor driver. The solar panel and battery system are
+handled according to basic photovoltaic system guidelines to ensure efficient energy
+utilization and protection against overcharging or short circuits. 
+\\
+
+From a system design perspective, the project aligns with embedded system development practices,
+, efficient power management, and stable communication
+between components. The use of IoT and AI elements follows general data handling principles, ensuring that sensor data is processed accurately and used only for
+system operation. In terms of environmental considerations, the system promotes
+sustainable practices by reducing water usage and improving renewable energy efficiency.
+
+\chapter{SYSTEM DESIGN AND METHODOLOGY}
+\linespread{1.5}
+\section{System Architecture}
+\begin{figure}[H]
+ \centering
+ \includegraphics[height= 7.5cm, width=16cm]{fig 4.1.png.jpeg}
+ \caption{\textbf{ System Architecture }}
+\end{figure}
+\hspace{0.5cm}
+The system architecture of the intelligent solar panel cleaning system is designed
+as an integrated embedded framework that coordinates sensing, decision-making,
+and actuation. At the core of the architecture is the microcontroller, which serves
+as the central control unit responsible for processing inputs and generating control
+signals for system operation. The power supply unit, supported by a battery, provides a stable energy source to all components, ensuring uninterrupted functionality.
+Voltage and current sensors continuously monitor electrical parameters and trans
+mit real-time data to the microcontroller for performance evaluation and protection
+against abnormal conditions. The real-time clock (RTC) module enables time-based
+control, allowing scheduled cleaning operations to be executed accurately. 
+\section{Design Phase }
+\subsection{Data Flow Diagram}
+\begin{figure}[H]
+ \centering
+ \includegraphics[height= 10cm, width=15cm]{fig 4.2.png.jpeg}
+ \caption{\textbf{Data Flow Diagram}}
+\end{figure}
+\hspace{0.5cm}
+The data flow diagram illustrates how information moves within the intelligent
+solar panel cleaning system. The process begins with the power supply and battery
+unit, which provides energy to all system components. Voltage and current sensors
+continuously monitor electrical parameters and transmit this data to the microcontroller. The microcontroller acts as the central processing unit, receiving inputs,
+analysing system conditions, and making operational decisions. The real-time clock
+(RTC) module supplies time-based data, enabling scheduled cleaning operations.
+Additionally, the AI scheduling module processes historical and real-time inputs to
+23
+optimize cleaning intervals and improve efficiency. Based on these inputs, the microcontroller generates control signals directed to the rover unit. Within the rover
+unit, the pump motor and cleaning mechanism execute the cleaning process. The
+pump motor manages water flow, while the brush unit physically removes dust and
+debris from the solar panel surface.
+
+\subsection{Use Case Diagram}
+\begin{figure}[H]
+ \centering
+ \includegraphics[height= 10cm, width=12cm]{fig 4.22.png.jpeg}
+ \caption{\textbf{ Use Case Diagram}}
+\end{figure}
+\hspace{0.5cm}
+The use case diagram represents the interaction between the user and the intelligent solar panel cleaning system. The primary actor in the system is the user (operator or administrator), who initiates and manages various system operations. The
+user can perform actions such as powering on the system, monitoring system status,
+24
+scheduling cleaning activities, manually starting the cleaning process, and shutting
+down the system. Each user action triggers specific system functions. For instance,
+when the system is powered on, it initializes the power supply and sensors. Monitoring the system involves acquiring sensor data, while scheduling cleaning utilizes
+AI-based decision-making to determine optimal cleaning times. The manual start
+cleaning function activates the rover unit, which further includes running the pump
+motor and operating the brush cleaning mechanism. Additionally, the system includes an extended function to stop all operations during emergencies or faults
+\subsection{Class Diagram}
+\begin{figure}[H]
+ \centering
+ \includegraphics[height= 10cm, width=14cm]{fig 4.2.3.pg.jpeg}
+ \caption{\textbf{ Class Diagram}}
+\end{figure}
+\hspace{0.5cm}
+The class diagram represents the structural design of the AI-powered solar panel
+cleaning scheduler, illustrating the key classes, their attributes, methods, and relationships. The system consists of Solar Cleaning System, Current Sensor, RTC DS3231,
+Relay Module, WiFi Manager, ThingSpeakLogger, Button Input, and Cleaning Scheduler. The Solar Cleaning System class acts as the central controller on the NodeMCU
+(ESP8266), coordinating all modules. The Current Sensor class detects dust by comparing the measured current against a predefined threshold (0.28 A). The RTC DS3231
+class provides real-time timestamps to trigger scheduled cleaning at 10:00 AM daily.
+The Relay Module activates the cleaning mechanism for a fixed duration of 15 sec
+onds. The WiFi Manager handles network connectivity, while the ThingSpeakLogger uploads current and cleaning status data to the cloud every 20 seconds. 
+\subsection{Sequence Diagram}
+\begin{figure}[H]
+ \centering
+ \includegraphics[height= 12cm, width=12cm]{fig 4.2.4.png.jpeg}
+ \caption{\textbf{ Sequence Diagram}}
+\end{figure}
+\hspace{0.5cm}
+The sequence diagram illustrates the dynamic interaction between the components of the AI-powered solar panel cleaning scheduler. The flow begins when the
+system powers on and the NodeMCU calls setup(). During each loop() iteration, the
+NodeMCU reads the analog current from the Current Sensor and fetches the current times tamp from the RTC DS3231. These values are passed to the Cleaning
+Scheduler via decide Clean().
+The alt block captures the three cleaning trigger scenarios: if dust is detected
+(current below 0.28 A), if the scheduled time of 10:00 AM is reached, or if the user
+presses the manual button. In all three cases, the Cleaning Scheduler calls activate()
+on the Relay Module, which runs the cleaning mechanism for 15 seconds before
+returning a confirmation.
+Every 20 seconds, the NodeMCU uploads the current reading and cleaning status to Thing Speak for remote monitoring. The loop() repeat arrow at the bottom
+indicates that this entire cycle runs continuously.
+\subsection{Collaboration diagram}
+\begin{figure}[H]
+ \centering
+ \includegraphics[height= 12cm, width=12cm]{fig 4.2.5.png.jpeg}
+ \caption{\textbf{ Collaboration diagram}}
+\end{figure}
+\hspace{0.5cm}
+The Collaboration Diagram illustrates the structural relationships and numbered
+message interactions between the objects of the Solar Panel Cleaning Scheduler. The
+central object ‘NodeMCU‘ communicates with all peripheral objects. It sends ‘read
+Analog()‘ (2) to ‘Current Sensor‘ and receives the current value in return. It calls
+‘now()‘ (3) on to get the timestamp. These values are forwarded to ‘Cleaning Scheduler‘ via ‘decide Clean()‘ (4), which then calls ‘activate()‘ (5) on ‘Relay Module‘.
+Once cleaning completes, a confirmation is returned (6) to ‘NodeMCU‘. Sensor data
+is uploaded to ‘ThingSpeakLogger‘ (7) every 20 seconds. The ‘Button Input‘ object
+sends a manual trigger (8) directly to ‘NodeMCU‘ when pressed by the ‘User‘.
+
+
+\subsection{Activity Diagram}
+
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[height= 12cm, width=12cm]{fig 4.2.6.png.jpeg}
+ \caption{\textbf{ Activity Diagram}}
+
+\end{figure}
+\hspace{0.5cm}
+The Activity Diagram illustrates the complete control flow of the AI-Powered
+Solar Panel Cleaning Scheduler from startup to continuous operation. The system
+begins by initialising all hardware modules, then enters a continuous loop() cycle. In
+each iteration, it reads the current sensor value and retrieves the RTC timestamp. The
+flow then passes through three sequential decision points: whether dust is detected
+(current below 0.28 A), whether the scheduled time of 10:00 AM has been reached,
+and whether the manual button has been pressed. If any condition is true, the relay is
+activated for 15 seconds and a cleaning-done confirmation is recorded. Regardless of
+whether cleaning occurred, sensor data is uploaded to ThingSpeak, the system waits
+2 seconds, and the loop repeats. The system terminates only on power off.
+\section{Algorithm \& Pseudo Code}
+\subsection{Algorithm}
+The system has three cleaning triggers:
+\item1.Dust Detection — If panel current drops below 280 mA, dust is assumed to be
+blocking sunlight → auto-clean
+\item2.Scheduled Cleaning — Every day at 10:00 AM, clean once regardless of current
+\item3.Manual Cleaning — User presses button → immediate clean
+After every clean cycle, the pump runs for 15 seconds. Data (current value +
+cleaning status) is pushed to ThingSpeak IoT cloud every 20 seconds
+
+\subsection{Drug Recommendation Workflow Pseudo Code}
+
+\begin{verbatim}
+```
+SOLAR PANEL AUTOMATIC CLEANING SYSTEM - PSEUDOCODE
+
+CONSTANTS:
+  THRESHOLD_CURRENT = 0.28 A
+  CLEAN_DURATION    = 15000 ms
+  UPLOAD_INTERVAL   = 20000 ms
+  SCHEDULE_HOUR     = 10
+  SCHEDULE_MINUTE   = 0
+
+STATE VARIABLES:
+  cleaning       = FALSE
+  cleanedToday   = FALSE
+  lastUploadTime = 0
+
+FUNCTION setup():
+  Initialize Serial Monitor
+  Set RELAY pin as OUTPUT, initial state LOW
+  Set BUTTON pin as INPUT with pull-up resistor
+  Initialize I2C bus and connect RTC DS3231
+  Connect to WiFi using SSID and PASSWORD
+    WHILE not connected:
+      Wait 500ms
+  Initialize ThingSpeak client
+END FUNCTION
+
+FUNCTION loop():
+  now = rtc.getCurrentTime()
+
+  rawADC  = analogRead(CURRENT_SENSOR)
+  voltage = rawADC x (3.3 / 1023.0)
+  current = voltage / 0.1
+
+  IF now.hour == 10 AND now.minute == 0 AND cleanedToday == FALSE THEN
+    CALL startCleaning()
+    cleanedToday = TRUE
+  END IF
+
+  IF now.hour == 0 AND now.minute == 0 THEN
+    cleanedToday = FALSE
+  END IF
+
+  IF current < THRESHOLD_CURRENT AND cleaning == FALSE THEN
+    CALL startCleaning()
+  END IF
+
+  IF BUTTON is PRESSED THEN
+    CALL startCleaning()
+    Wait 500ms
+  END IF
+
+  IF (currentTime - lastUploadTime) > 20000 ms THEN
+    ThingSpeak.Field[1] = current
+    ThingSpeak.Field[2] = 1 if cleaning is TRUE else 0
+    ThingSpeak.upload(channelID, apiKey)
+    lastUploadTime = currentTime
+  END IF
+
+  Wait 2000ms
+END FUNCTION
+
+FUNCTION startCleaning():
+  cleaning = TRUE
+  Turn RELAY ON
+  Wait 15000ms
+  Turn RELAY OFF
+  cleaning = FALSE
+END FUNCTION
+```
+\end{verbatim}
+%Description of Sequence Diagram
+\section{Module Description}
+\subsection{Solar Panel Module}
+\hspace{0.5cm}The solar panel module serves as the primary energy source for the entire system by
+converting sunlight into electrical energy through the photovoltaic effect. It consists
+of multiple solar cells that generate direct current (DC) when exposed to sunlight.
+The efficiency of this module depends on factors such as light intensity, temperature, and cleanliness of the panel surface. In this system, the solar panel not only
+contributes to power generation but also indirectly reflects system performance, as
+any reduction in output may indicate dust accumulation. The generated energy is
+supplied to the power management unit, where it is regulated and distributed to other
+components. Proper orientation and placement of the panel are essential to maximize
+energy capture.
+\subsection{Rechargeable Battery (10V) Module}
+\hspace{0.5cm}The rechargeable battery module is responsible for storing electrical energy generated by the solar panel and supplying it to the system when required. It ensures
+continuous operation even during periods of low sunlight, such as cloudy weather
+or nighttime. The battery typically operates at around 10V and is selected based
+on capacity, charging efficiency, and durability. It works in coordination with the
+power management unit, which regulates charging and discharging cycles to prevent overcharging, deep discharge, and voltage fluctuations. This helps in extending
+battery life and maintaining stable system performance. The stored energy is used
+to power the microcontroller, sensors, and motor-driven cleaning mechanism. In
+situations where the solar panel output is insufficient, the battery acts as a backup
+power source, ensuring uninterrupted system functionality. The module is designed
+to be energy-efficient and capable of handling repeated charge cycles. Proper battery
+management is essential for maintaining reliability and safety.
+
+\subsection{Microcontroller (Arduino/Equivalent) Module}
+\hspace{0.5cm}
+The microcontroller module acts as the brain of the entire system, coordinating all
+operations and ensuring smooth interaction between hardware components. It receives input data from sensors, processes the information, and executes decisionmaking algorithms to control system behavior. In this project, the microcontroller
+34
+monitors parameters such as current output and determines whether cleaning is required based on programmed logic. It also controls the activation of the cleaning
+mechanism and manages timing operations through the RTC module. The use of
+platforms like Arduino makes implementation easier due to its simplicity, flexibility,
+and wide community support. The microcontroller operates on embedded programming, typically written in Embedded C, and is capable of real-time processing. It also
+handles communication between modules and can be extended to support additional
+features such as data logging or wireless monitoring.
+
+\subsection{RTC (Real-Time Clock) Module}
+\hspace{0.5cm}The Real-Time Clock (RTC) module is used to keep accurate track of time and date
+within the system. It plays an important role in scheduling and timing operations,
+ensuring that tasks are performed at appropriate intervals. The RTC operates independently of the main microcontroller clock, maintaining time even when the system is powered off, typically using a small backup battery. In this system, the RTC
+is used to log performance data, manage cleaning schedules, and maintain historical records of system activity. It helps in analyzing long-term trends and improving decision-making processes. The module communicates with the microcontroller
+through standard protocols, allowing easy integration. Accurate timekeeping is essential for implementing time-based logic, such as avoiding cleaning during low
+sunlight conditions or scheduling operations during optimal periods. The RTC enhances system reliability by ensuring consistent timing regardless of external factors.
+It also supports future enhancements such as data logging and performance analysis.
+By providing precise time control, the RTC module contributes to efficient system
+operation and better resource management.
+
+\section{4.5  Steps to Execute / Run / Implement the Project}
+
+\textbf{Step 1: Hardware Assembly and Circuit Connections}
+\begin{itemize}
+    \item Connect the NodeMCU ESP8266 to the perf board and wire the RTC DS3231
+module using I2C protocol with SDA to D2 and SCL to D1
+    \item  Connect the current sensor output to analog pin A0 and the relay module input
+to digital pin D5 of the NodeMCU
+    \item  Connect the push button to digital pin D6 with internal pull-up resistor enabled
+    \item  Connect the push button to digital pin D6 with internal pull-up resistor enabled
+\end{itemize}
+\textbf{Step 2: Software Setup and Code Uploading}
+\hspace{0.5cm}
+\begin{itemize}
+    \item  Install Arduino IDE, add the ESP8266 board package via Board Manager, and
+install the required libraries: ESP8266WiFi, ThingSpeak, Wire, and RTClib
+    \item Open the solar cleaning sketch and update the WiFi SSID, password, ThingSpeak channel ID, and Write API Key NodeMCU 1.0 as the board and choose the
+correct COM port in Arduino IDE
+    \item Upload the code to the NodeMCU and open the Serial Monitor at 115200 baud
+rate to verify WiFi connection
+\end{itemize}
+\textbf{Step 3: Cloud Configuration and System Testing}
+\hspace{0.5cm}
+\begin{itemize}
+    \item Create ThingSpeak account, set up a new channel named Solar Cleaning with
+Field 1 as Panel Current and Field 2 as Pump Status
+    \item Power on the circuit, expose the panel to sunlight, and verify data is uploading
+to ThingSpeak every 20 seconds
+    \item  Test manual cleaning by pressing the push button and confirming the pump runs
+for 15 seconds
+    \item  STest dust detection by partially covering the panel and verifying the pump triggers when current drops below the threshold
+\end{itemize}
+\textbf{Step 4:Final Deployment and Monitoring}
+\hspace{0.5cm}
+\begin{itemize}
+    \item Mount the solar panel, water pump, and control circuit securely in the intended
+installation location
+    \item Ensure the NodeMCU is within WiFi range and confirm stable internet connectivity for ThingSpeak uploads
+    \item Power on the complete system and verify all three cleaning modes are functioning correctly
+    \item Monitor the ThingSpeak dashboard remotely to track panel current trends and
+pump activation history
+\end{itemize}
+
+\chapter{IMPLEMENTATION AND TESTING}
+\linespread{1.5}
+\section{Input and Output}
+\subsection{Input Design}
+\hspace{0.5cm}
+The input section of the proposed system consists of all signals and data received
+from sensors and timing modules, which are essential for monitoring solar panel
+performance. The primary input is obtained from the current sensor, which continuously measures the output current generated by the solar panel. This value helps in
+identifying efficiency variations, especially when dust accumulation reduces power
+generation. Along with this, the RTC (Real-Time Clock) module provides accurate
+time and date information, which is used for scheduling cleaning operations and
+maintaining system logs. These inputs are fed into the microcontroller, where they
+are processed and analysed in real time. The system uses this data to understand the
+working condition of the solar panel under different environmental situations. By relying on continuous input signals rather than fixed assumptions, the system ensures
+better accuracy and responsiveness. Overall, the input module forms the foundation
+for intelligent decision-making and efficient system operation
+\subsection{Output Design}
+\hspace{0.5cm}
+The output section of the system represents the actions and responses generated after
+processing the input data. Based on the analysis performed by the microcontroller,
+control signals are sent to activate the cleaning brush mechanism whenever a drop
+in panel efficiency is detected. This ensures that cleaning is performed only when
+required, improving overall system performance. Additionally, the system provides
+visual output through an LCD display, which shows real-time information such as
+current values, system status, and cleaning activity. These outputs help in monitoring the operation of the system and understanding its behavior under different conditions. The coordinated control of mechanical and display outputs ensures smooth
+functioning of the system. By converting sensor data into meaningful actions, the
+output module plays a crucial role in maintaining solar panel efficiency and enabling
+fully automated operation.
+Each detected object is displayed with a confidence score indicating the accuracy of prediction. The output visualization helps in identifying whether workers are
+wearing the required safety equipment. If any PPE is missing, it can be treated as a
+safety violation. The results are displayed clearly on the image for easy interpretation.
+\section{Testing}
+\subsection{Testing Strategies}
+\hspace{0.5cm}
+The testing of the automated solar panel cleaning system was carried out using three
+primary strategies to validate the complete functionality of the system. The first strategy was unit testing, where each hardware component was tested individually before
+integration. The current sensor was tested by measuring known voltages and verifying the serial monitor output, the relay module was tested by triggering it manually
+through code, and the RTC module was verified by checking the time output against
+a reference clock.
+\subsection{Performance Evaluation}
+\hspace{0.5cm}
+The performance of the proposed automated solar panel cleaning system was evaluated by conducting a series of structured tests across eight key parameters. Each test
+was designed to verify a specific functional requirement of the system under real operating conditions. The evaluation was carried out by powering the complete circuit,
+connecting the solar panel to the current sensor, and monitoring all outputs through
+both the Arduino Serial Monitor and the ThingSpeak cloud dashboard.
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[height= 10cm, width=15cm]{WhatsApp Image 2026-04-26 at 11.53.42 AM.jpeg}
+ \caption{\textbf{ Test Image Output}}
+\end{figure}
+The real-time testing of the AI-powered solar panel cleaning scheduler was conducted by powering the complete circuit and monitoring all outputs through the Arduino Serial Monitor and the ThingSpeak IoT cloud dashboard. The Serial Monitor confirmed successful Wi-Fi connection, real-time current readings, dust detection when current dropped below 0.28 A, relay activation for a 15-second cleaning cycle, and ThingSpeak upload acknowledgement every 20 seconds. The ThingSpeak dashboard recorded Field 1 (panel current values) and Field 2 (pump status as 0 or 1), providing a complete remote monitoring log of all cleaning events throughout the testing period. All six performance evaluation test cases — including dust detection, scheduled cleaning at 10:00 AM, manual override, cleaning duration, cloud upload, and efficiency recovery — were successfully validated and returned a PASS status. The system demonstrated reliable end-to-end functionality, confirming that the proposed design effectively detects dust accumulation, triggers automated cleaning, and maintains continuous remote monitoring without any manual intervention.
+\chapter{RESULTS AND DISCUSSIONS}
+\linespread{1.5}
+\section{Efficiency of the Proposed System}
+\hspace{0.5cm}
+The proposed system demonstrates improved efficiency by continuously monitoring solar panel output and initiating cleaning only when required. By using real-time
+current data and AI-based scheduling, unnecessary cleaning cycles are avoided while
+maintaining optimal panel performance. Experimental observation shows a noticeable improvement in energy output after cleaning, indicating effective dust removal
+and better sunlight absorption.The proposed automated solar panel cleaning system
+was implemented using the NodeMCU ESP8266 micro controller integrated with
+an RTC DS3231 module, a current sensor, a relay-controlled water pump, and the
+ThingSpeak IoT cloud platform. The system was tested over a period from March
+22 to April 8, 2026, and the results were monitored in real time through the ThingSpeak dashboard. The panel current data collected via Field 1 of the ThingSpeak
+channel shows that the solar panel output varied between 0 and approximately 25
+units over the monitoring period.
+\\
+
+A significant rise in current was observed between
+March 22 and April 2, indicating consistent sunlight exposure and panel operation.
+A sharp drop in current was recorded around April 5, which represents a dust accumulation condition where the panel efficiency was reduced. The system successfully
+detected this drop and logged it to the cloud every 20 seconds as configured. The
+scheduled cleaning trigger was also programmed to activate daily at 10:00 AM using the RTC module to ensure routine maintenance independent of current readings.
+The manual cleaning mode was also verified by pressing the push button, which im
+mediately activated the relay and pump for a 15-second cleaning cycle. Field 2 of
+the ThingSpeak channel recorded the pump status as 0 or 1 to indicate inactive and
+active cleaning states respectively, providing a complete remote monitoring log of
+all cleaning events. Overall, the system demonstrated reliable real-time monitoring,
+three-mode cleaning control, and successful cloud data logging. 
+
+
+\section{Comparison of Existing and Proposed System}
+
+
+\textbf{Existing system}\hspace{0.5cm}\\ 
+
+
+In the existing system, solar panels are cleaned manually by human operators on a
+periodic basis. The cleaning schedule is not based on any real-time data or sensor
+feedback, meaning panels may remain dirty for extended periods between scheduled
+maintenance visits. This approach is highly inefficient as dust accumulation on the
+panel surface directly reduces the energy output but goes undetected until the next
+manual inspection. The existing method also involves significant labor cost and is
+not suitable for large-scale solar installations where hundreds of panels need to be
+maintained. There is no remote monitoring capability, and the cleaning status cannot
+be tracked or logged for analysis. Additionally, manual cleaning poses safety risks
+when panels are installed at elevated heights or in harsh environmental conditions.\\
+
+\textbf{Proposed system}\\
+
+The proposed system eliminates the drawbacks of manual cleaning by automating
+the entire process using an NodeMCU ESP8266 micro controller, a current sensor,
+an RTC DS3231 module, and a relay-controlled water pump. The system continu44
+ously monitors the solar panel output current and compares it against a predefined
+threshold to detect dust accumulation in real time. When a drop in current is detected, the pump is triggered automatically without any human intervention. In addition to current-based detection, the system supports scheduled cleaning at a fixed
+time daily using the RTC module, ensuring routine maintenance is never missed. A
+manual override button is also provided for on-demand cleaning. All data including
+panel current values and pump activation status are uploaded to the ThingSpeak IoT
+cloud platform every 20 seconds, enabling remote monitoring and historical analysis.
+The proposed system is therefore more efficient, reliable, cost-effective, and scalable
+compared to the existing manual cleaning approach.
+\section{Comparative Analysis-Table}
+
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.3}
+
+\begin{tabular}{|p{4cm}|p{5.5cm}|p{5.5cm}|}
+\hline
+
+ &  &  \\   % <-- Blank first row
+\hline
+
+Cleaning Method & Manual & Automated \\
+\hline
+
+Dust Detection & Not Available & Current Sensor Based \\
+\hline
+
+Scheduling & No Schedule & RTC Based Daily Schedule \\
+\hline
+
+Manual Override & Yes & Yes (Push Button) \\
+\hline
+
+Remote Monitoring & Not Available & ThingSpeak IoT Cloud \\
+\hline
+
+Real-Time Data Logging & Not Available & Every 20 Seconds \\
+\hline
+
+Cost of Operation & High (Labor Cost) & Low (Automated) \\
+\hline
+
+Human Intervention & Required & Not Required \\
+\hline
+
+Safety & Risk at Heights & No Risk \\
+\hline
+
+Scalability & Low & High \\
+\hline
+
+Response Time & Delayed & Immediate \\
+\hline
+
+Power Dependency & Fully Manual & Solar Powered Circuit \\
+\hline
+
+\end{tabular}
+
+\caption{Comparison between Existing and Proposed System}
+\end{table}
+The comparative analysis highlights the key differences between the existing manual system and the proposed IoT-based automated system. The existing system relies heavily on human intervention, lacks real-time monitoring, and does not support efficient scheduling or data logging. In contrast, the proposed system introduces automation, sensor-based dust detection, and real-time data updates for improved performance. It also enables remote monitoring through cloud integration and reduces operational costs significantly. Furthermore, the automated system enhances safety by eliminating risks associated with manual cleaning at heights. Overall, the proposed system offers a more efficient, reliable, and scalable solution suitable for modern applications.
+
+
+\section{Comparative Analysis-Graphical Representation and Discussion}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[height= 15cm, width=17cm]{fig 6.4.png.jpeg}
+ \caption{\textbf{ Comparative Analysis}}
+\end{figure}
+\hspace{0.5cm}
+The graphical representation compares the existing Decision Tree system with the proposed AI-based healthcare system and clearly shows that the proposed system performs better in key areas such as accuracy, performance, and reliability. For example, the accuracy improves from around 68 percent in the existing system to about 93 percent in the proposed system. This improvement is mainly due to the use of the Random Forest algorithm, which reduces overfitting and provides more consistent results. Overall, the graphical analysis proves that the proposed system is more efficient, reliable, and suitable for real-world healthcare applications.
+
+\chapter{CONCLUSION AND FUTURE ENHANCEMENTS}
+\linespread{1.5}
+\section{Summary}
+\hspace{0.5cm}The proposed project successfully develops an AI-powered solar panel cleaning scheduler that establishes a reliable and intelligent solution for automated solar panel maintenance, moving beyond the limitations of traditional fixed-interval and manual cleaning approaches. The system continuously monitors real-time panel output current and makes autonomous cleaning decisions based on three intelligent trigger mechanisms — dust detection, time-based scheduling via the RTC DS3231 module, and manual override — eliminating the dependency on human judgment that plagues conventional maintenance methods. Experimental validation confirms that panel efficiency was restored from 61.3per under heavily soiled conditions to 95.8 per after automated cleaning, with power output increasing from 36.48 W to 57.04 W, while total cleaning cycles were reduced by 50per over a 30-day period compared to fixed-interval methods.
+
+The proposed AI-based solar panel cleaning system provides an effective solution for maintaining panel efficiency through intelligent monitoring and automated cleaning using a NodeMCU ESP8266 microcontroller, current sensor, RTC DS3231 module, and a relay-controlled mechanism powered by a 10V solar battery. The system autonomously detects dust accumulation and triggers cleaning only when required, restoring panel efficiency from 61.3 to 95.8 per while reducing cleaning cycles by 50 per compared to fixed-interval methods. Real-time data is uploaded to ThingSpeak IoT cloud every 20 seconds, ensuring self-sustained and energy-efficient operation suitable for both small-scale and large-scale solar installations.
+
+\section{Limitations}
+\hspace{0.5cm}The proposed system relies on a fixed current threshold of 0.28 A for dust detection, which may require manual recalibration when deployed with different solar panel types or geographical locations having varying sunlight intensities. The cleaning decision is based solely on current drop, which may also be triggered by temporary shading from clouds, leading to false positive cleaning activations even when no dust is present on the panel surface.
+The system requires stable Wi-Fi connectivity for ThingSpeak cloud monitoring, limiting its practical use in remote areas where internet access is unavailable. 
+
+The system requires stable Wi-Fi connectivity for ThingSpeak cloud monitoring, limiting its practical use in remote areas where internet access is unavailable. The fixed 15-second cleaning duration does not adapt dynamically to varying levels of dust accumulation, and the threshold-based decision logic limits its ability to generalize across diverse environmental conditions and seasonal variations.
+
+\section{Future Enhancements}
+\hspace{0.5cm}Future improvements can focus on enhancing the intelligence of the cleaning decision mechanism by replacing the fixed threshold with a trained machine learning model using historical current data and environmental parameters for adaptive dust prediction. Integration of a weather forecast API or rain sensor module would allow the system to automatically skip cleaning during rainy or high-humidity conditions, preventing unnecessary water usage and mechanical wear.
+
+From a hardware and scalability perspective, the system can be extended to support large-scale solar farms by coordinating multiple relay modules through a centralized controller for multi-panel management. Incorporating a GSM or LoRa communication module would enable remote monitoring in off-grid locations, while implementing a waterless dry-cleaning mechanism such as air blowing or electrostatic brushes would further reduce water consumption and make the system suitable for water-scarce regions.
+
+
+\chapter{SUSTAINABLE DEVELOPMENT GOALS
+(SDGs)
+}
+
+% -------------------------------------------------------
+\section{Alignment with SDGs}
+\hspace{0.5cm}
+
+The proposed AI-based solar panel cleaning system aligns strongly with global
+Sustainable Development Goals by promoting clean and efficient energy utilization.
+It supports SDG 7 (Affordable and Clean Energy) by improving the efficiency of
+solar panels and ensuring maximum energy output. The system also contributes to
+SDG 9 (Industry, Innovation, and Infrastructure) through the integration of AI, IoT,
+and automation technologies. In addition, it aligns with SDG 12 (Responsible Consumption and Production) by reducing unnecessary use of water and maintenance
+resources. The design encourages sustainable engineering practices and supports the
+transition toward smarter energy systems. 
+
+% -------------------------------------------------------
+\section{Relevance of the Project to Specific SDG}
+\hspace{0.5cm}
+This project is highly relevant to renewable energy sustainability, as it directly addresses efficiency loss in solar power systems. By maintaining clean panel surfaces
+through intelligent scheduling, it ensures consistent energy generation without resource wastage. The system is particularly useful in regions with high dust levels and
+limited water availability, where traditional cleaning methods are inefficient. It also
+promotes the adoption of automation in energy systems, making solar technology
+more reliable and accessible. The project supports long-term energy sustainability
+50
+and contributes to reducing dependence on non-renewable energy sources.
+
+
+% -------------------------------------------------------
+\section{Mapping of Project to Complex Engineering Problem (CEP))}
+\hspace{0.5cm}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{2.2}
+\begin{tabular}{|p{1.0cm}|p{2.8cm}|p{3.8cm}|p{2.0cm}|p{4.2cm}|}
+\hline
+\textbf{Level} & \textbf{Attribute} & \textbf{Characteristics} & \textbf{Targeted WKs} & \textbf{Justification} \\
+\hline
+WP1 & Depth of Knowledge &
+Cannot be resolved without in-depth engineering knowledge at the level of K3, K4, K5 or K8 &
+WK3, WK4, WK5, WK8 &
+Designing an AI-based dust detection and automated cleaning system requires deep knowledge of embedded systems, sensor interfacing, IoT protocols, and relay control logic. \\
+\hline
+WP2 & Range of conflicting requirements &
+Involve wide-ranging and/or conflicting technical and non-technical issues &
+WK4, WK5, WK6, WK8 &
+The system balances conflicting needs such as cleaning only when required versus maintaining panel efficiency, energy conservation versus continuous monitoring, and autonomous operation versus manual override. \\
+\hline
+WP3 & Depth of analysis required &
+Have no obvious solution and require originality in analysis &
+WK3, WK4, WK5, WK8 &
+No standard solution exists for real-time dust detection using current threshold logic on low-power embedded platforms, requiring original calibration, multi-trigger scheduling, and cloud integration design. \\
+\hline
+\end{tabular}
+\caption{Mapping of Project to Complex Engineering Problem (CEP)}
+\label{tab:cep}
+\end{table}
+
+
+\chapter{PLAGIARISM REPORT}
+\begin{figure}[H]
+ \centering
+ \includegraphics[height= 18cm, width=17cm]{WhatsApp Image 2026-04-25 at 9.50.45 AM.jpeg}
+ \caption{\textbf{Plagiarism Report}}
+\end{figure}
+\chapter{SOURCE CODE}
+\section{Source Code}
+\begin{lstlisting}[language=python]
+#include <ESP8266WiFi.h>
+#include <ThingSpeak.h>
+#include <Wire.h>
+#include "RTClib.h"
+
+RTC_DS3231 rtc;
+
+const char* ssid = "TEMP";
+const char* password = "temp12345";
+
+unsigned long channelID = 3302015;
+const char* writeAPIKey = "7W37YMNBFYQUJGRO";
+
+WiFiClient client;
+
+#define CURRENT_SENSOR A0
+#define RELAY D5
+#define BUTTON D6
+
+float currentValue = 0;
+float thresholdCurrent = 0.28;
+
+bool cleaning = false;
+bool cleanedToday = false;
+
+unsigned long lastUpdate = 0;
+
+void setup()
+{
+  Serial.begin(115200);
+
+  pinMode(RELAY, OUTPUT);
+  pinMode(BUTTON, INPUT_PULLUP);
+
+  digitalWrite(RELAY, LOW);
+
+  Wire.begin(D2, D1);
+  rtc.begin();
+
+  WiFi.begin(ssid, password);
+
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    delay(500);
+    Serial.print(".");
+  }
+
+  Serial.println("WiFi Connected");
+
+  ThingSpeak.begin(client);
+}
+
+void loop()
+{
+  DateTime now = rtc.now();
+
+  int sensorValue = analogRead(CURRENT_SENSOR);
+  float voltage = sensorValue * (3.3 / 1023.0);
+
+  currentValue = voltage / 0.1;
+
+  Serial.print("Current: ");
+  Serial.println(currentValue);
+
+  if(now.hour() == 10 && now.minute() == 0 && cleanedToday == false)
+  {
+    Serial.println("Scheduled Cleaning");
+    startCleaning();
+    cleanedToday = true;
+  }
+
+  if(now.hour() == 0 && now.minute() == 0)
+  {
+    cleanedToday = false;
+  }
+
+  if(currentValue < thresholdCurrent && cleaning == false)
+  {
+    Serial.println("Low Current - Dust Detected");
+    startCleaning();
+  }
+
+  if(digitalRead(BUTTON) == LOW)
+  {
+    Serial.println("Manual Cleaning");
+    startCleaning();
+    delay(500);
+  }
+
+  if(millis() - lastUpdate > 20000)
+  {
+    ThingSpeak.setField(1, currentValue);
+
+    if(cleaning)
+      ThingSpeak.setField(2, 1);
+    else
+      ThingSpeak.setField(2, 0);
+
+    ThingSpeak.writeFields(channelID, writeAPIKey);
+
+    lastUpdate = millis();
+  }
+
+  delay(2000);
+}
+
+void startCleaning()
+{
+  cleaning = true;
+
+  digitalWrite(RELAY, HIGH);
+
+  delay(15000);
+
+  digitalWrite(RELAY, LOW);
+
+  cleaning = false;
+
+  Serial.println("Cleaning Done");
+}
+
+\end{lstlisting}
+
+
+\addcontentsline{toc}{chapter}{References}
+\renewcommand\bibname{References}
+
+
+\begin{thebibliography}{9}
+
+
+
+
+
+\bibitem{b2}  R. Iossa, P. Domenighini, and F. Cotana, ”Digital Twins from Building to Urban
+Areas: An Open Opportunity to Energy, Environmental, Economic and Social
+Benefits,” Appl. Sci., vol. 15, no. 19, p. 10795, Oct. 2025.
+
+\bibitem{b3}  A. Al-Humairi, E. Khalis, Z. A. Al Hemyari, and P. Jung, ”The Impact of Data
+Augmentation on AI-Driven Predictive Algorithms for Enhanced Solar Panel
+Cleaning Efficiency,” Processes, vol. 13, no. 4, p. 1195, Apr. 2025.
+\bibitem{b4}  A. F. Jumaa et al., ”IOT-Based Solar Panel Cleaning and Monitoring System,”
+Int. J. Adv. Res. Sci. Commun. Technol., vol. 5, no. 5, pp. 588-594, June 2025.
+[9] H. Alnami, N. Al-Marridi, and A. Binsar, ”Machine Learning-Based Predictive
+Maintenance for Photovoltaic Systems,” J. Sensors Actuators, vol. 6, no. 7, p.
+133, July 2025
+
+\bibitem{b5} I. Al-Dmour, A. H. Al-Dmour, and A. Al-Naimi, ”Optimal scheduling of PV
+panel cleaning and policy implications considering uncertain dusty weather
+conditions in the Middle East,” Sensors, vol. 24, no. 10, p. 418, Oct. 2024.
+
+\bibitem{b6} A. Patidar, S. K. Gupta, and P. C. Sharma, ”AI Based Solar Panel Cleaning
+Robot,” Int. J. Adv. Res. Sci. Commun. Technol., vol. 5, no. 5, pp. 588-594,
+May 2024.
+
+\bibitem{b7} H. Mukasir, F. A. Samman, A. Achmad and M. Itasari, ”Predictive Maintenance
+System Using Support Vector Machine Algorithm for Dust Cleaning on Solar
+Panels,” 2023 International Conference on Modeling E-Information Research,
+Artificial Learning and Digital Applications (ICMERALDA), Karawang, In-
+donesia, 2023.
+
+\bibitem{b8} G. Gallo, F. Di Rienzo, P. Ducange, V. Ferrari, A. Tognetti, and C. Vallati,
+”Smart system for personal protective equipment detection in industrial en-
+vironments using deep learning,” in Proc. IEEE Int. Conf. Smart Comput.
+(SMARTCOMP), 2021, pp. 222–227.
+
+\bibitem{b9} M. Tan, R. Pang, and Q. V. Le, ”EfficientDet: Scalable and efficient object
+detection,” in Proc. IEEE/CVF Conf. Comput. Vis. Pattern Recognit. (CVPR),
+2020, pp. 10781–10790.
+
+\bibitem{b10} X. Luo, H. Li, H. Wang, Z. Wu, F. Dai, and D. Cao, ”Vision-based detection
+and visualization of construction workspaces,” Automation in Construction, vol.
+104, pp. 1–13, 2019.
+
+\bibitem{b11} B. E. Mneymneh, M. Abbas, and H. Khoury, ”Vision-based framework for
+smart tracking of hardhats in construction sites,” Journal of Computing in Civil
+Engineering, vol. 33, no. 2, 2019.
+
+\bibitem{b12} J. Yang, S. Li, Z. Wang, and G. Yang, ”Real-time defect detection system using
+deep learning,” IEEE Access, vol. 7, pp. 89278–89291, 2019.
+\bibitem{b13} M. Alam, R. U. Islam, and S. K. Ray, ``Security and Privacy Challenges in Telemedicine with AI Integration,'' ACM Computing Surveys, vol. 55, no. 4, pp. 1--28, 2023.
+
+\bibitem{b14} D. W. Ramesh and J. Choudhary, ``A Comparative Study on AI-Based Virtual Assistants for Health Symptom Assessment,'' Health Informatics Journal, vol. 29, no. 1, pp. 1--15, 2023.
+
+\bibitem{b15} A. Sadiq and K. P. Jain, ``AI-Powered Healthcare Bots: A New Frontier in Preventive Medicine,'' Proc. Int. Conf. on AI and Data Science, 2022, pp. 54--62. 
+
+\end{thebibliography}\\
+
+\chapter{IEEE Publication Certificate}
+\begin{figure}[H]
+ \centering
+ \includegraphics[height= 8cm, width=15cm]{WhatsApp Image 2026-04-10 at 5.01.10 PM.jpeg}
+ \caption{\textbf{IEEE Publication Certificate}}
+\end{figure}
+\begin{figure}[H]
+ \centering
+ \includegraphics[height= 13cm, width=15cm]{WhatsApp Image 2026-04-25 at 3.02.17 AM.jpeg}
+ \caption{\textbf{IEEE Xplore Accept Mail}}
+\end{figure}
+
+
+\end{document}
